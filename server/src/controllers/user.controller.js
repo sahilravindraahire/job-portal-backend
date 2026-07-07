@@ -70,6 +70,8 @@ export const registerUser = asyncHandler(async(req, res) => {
     if(req.files?.resume?.[0]){
         const uploadRes = await uploadOnCloudinary(req.files?.resume?.[0]?.path)
 
+        console.log(uploadRes)
+
         if(!uploadRes){
             throw new ApiError(500, "Failed to upload resume")
         }

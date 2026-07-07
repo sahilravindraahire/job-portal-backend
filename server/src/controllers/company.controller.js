@@ -294,7 +294,7 @@ export const getEmployerDashboard = asyncHandler(async(req, res) => {
 
     const employerId = new mongoose.Types.ObjectId(req.user._id)
 
-    const [company, jobStats, applicationStats,, recentApplications] = await Promise.all([
+    const [company, jobStats, applicationStats, recentApplications] = await Promise.all([
         Company.findOne({userId: req.user._id}),
 
         Job.aggregate([
